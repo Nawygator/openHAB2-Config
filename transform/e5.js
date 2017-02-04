@@ -1,0 +1,1 @@
+JSON.parse(input).station.e10;

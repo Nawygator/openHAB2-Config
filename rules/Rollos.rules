@@ -1,0 +1,77 @@
+rule "Rollos runter"
+when
+	Item tag changed to OFF
+then
+	KuecheOst_Level.sendCommand(DOWN)
+	KuecheSued_Level.sendCommand(DOWN)
+	WohnzimmerErker_Level.sendCommand(DOWN)
+	WohnzimmerLinks_Level.sendCommand(DOWN)
+end
+
+rule "Rollos hoch"
+when
+	Item tag changed to ON
+then
+		KuecheOst_Level.sendCommand(UP)
+		KuecheSued_Level.sendCommand(UP)
+		WohnzimmerErker_Level.sendCommand(UP)
+		WohnzimmerLinks_Level.sendCommand(UP)
+end
+
+rule "Wohnzimmertür hoch"
+when
+	Item tag changed from OFF to ON or
+	Item TuerOffen changed to OFF
+then
+	if(tag.state.equals(ON) && TuerOffen.state.equals(OFF) && Hochgefahren.state.equals(OFF))
+	{
+		WohnzimmerRechts_Level.sendCommand(UP)
+		Hochgefahren.postUpdate(ON)
+	}
+end
+
+rule "Wohnzimmertür runter"
+when
+	Item tag changed from ON to OFF
+then
+	if(TuerOffen.state.equals(OFF))
+	{
+		WohnzimmerRechts_Level.sendCommand(DOWN)
+	}
+end
+
+rule "Grifflüftung"
+when
+	Item Tuergriff_State changed to TILTED
+then
+	var hoehe = WohnzimmerRechts_Level.state as DecimalType
+	var soll = 70
+	if(soll< hoehe)
+	{
+		WohnzimmerRechts_Level.sendCommand(70)
+	}
+	TuerOffen.postUpdate(ON)
+end
+
+rule "Grifföffnung"
+when
+	Item Tuergriff_State changed to OPEN
+then
+	var hoehe = WohnzimmerRechts_Level.state as DecimalType
+	if(0 < hoehe)
+	{
+		WohnzimmerRechts_Level.sendCommand(UP)
+	}
+	TuerOffen.postUpdate(ON)
+end
+
+rule "Terassentür schließen"
+when
+	Item Tuergriff_State changed to CLOSED
+then
+	TuerOffen.postUpdate(OFF)
+	if(tag.state.equals(OFF))
+	{
+		WohnzimmerRechts_Level.sendCommand(DOWN)
+	}
+end

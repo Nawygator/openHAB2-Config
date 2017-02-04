@@ -1,0 +1,7 @@
+String   SpeedtestSummary    "Speedtest [%s]"                <network>
+Number   SpeedtestResultPing "Ping [%.3f ms]"                <next>
+Number   SpeedtestResultDown "Downlink [%.2f Mbit/s]"        <download>
+Number   SpeedtestResultUp   "Uplink [%.2f Mbit/s]"          <upload>
+String   SpeedtestRunning    "Speedtest running ... [%s]"    <new>
+Switch   SpeedtestRerun      "Manuell starten"               <reload>
+DateTime SpeedtestResultDate "Zuletzt ausgeführt [%1$td.%1$tm.%1$tY, %1$tH:%1$tM Uhr]" <problem>

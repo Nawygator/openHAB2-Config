@@ -1,0 +1,19 @@
+rule "Tag ein"
+when
+    Channel 'astro:sun:local:rise#event' triggered START or
+    Time cron "0 0 8 ? * SAT,SUN *"
+then
+	if(tag.state.equals(OFF))
+	{
+   		tag.postUpdate(ON)
+		logInfo("Fabians","Tag -> ON")
+	}
+end
+
+rule "Tag aus"
+when
+    Channel 'astro:sun:local:civilDusk#event' triggered END 
+then
+    tag.postUpdate(OFF)
+	logInfo("Fabians","Tag -> OFF")
+end

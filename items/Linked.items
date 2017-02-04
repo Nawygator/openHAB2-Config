@@ -1,0 +1,124 @@
+Number StarDiesel "Diesel [%.3f EUR]" <oil> (Benzin) {channel="tankerkoenig:tankstelle:870cefa1:diesel"}
+Number StarE10 "E10 [%.3f EUR]" <oil> (Benzin) {channel="tankerkoenig:tankstelle:870cefa1:e10"}
+
+Switch Fabian "Fabian Präsenz" <switch> (Praesenz) {channel="network:device:192_168_178_23:online"}
+Switch Karina "Karina Präsenz" <switch> (Praesenz) {channel="network:device:192_168_178_22:online"}
+Switch Josef "Josef Präsenz" <switch> (Praesenz) {channel="network:device:192_168_178_25:online"}
+
+Switch Irini1 "Irini Handy" <switch> {channel="network:device:192_168_178_42:online"}
+Switch Irini2 "Irini Laptop" <switch> {channel="network:device:192_168_178_44:online"}
+
+Switch Schaltdose1_State "Kugeln draußen" <switch> (Schaltdosen) {channel="homematic:HG-HM-LC-Sw1-Pl-2:b70f309a:NEQ0296135:1#STATE"}
+Number Schaltdose1_QoS "Schaltdose 1 Signal" <qualityofservice> (Signale){channel="homematic:HG-HM-LC-Sw1-Pl-2:b70f309a:NEQ0296135:0#RSSI_DEVICE"}
+
+Switch Schaltdose2_State "Licht Fabian" <switch> (Schaltdosen) {channel="homematic:HG-HM-LC-Sw1-Pl-2:b70f309a:NEQ0296140:1#STATE"}
+Number Schaltdose2_QoS "Schaltdose 2 Signal" <qualityofservice> (Signale){channel="homematic:HG-HM-LC-Sw1-Pl-2:b70f309a:NEQ0296140:0#RSSI_DEVICE"}
+
+Switch Schaltdose3_State "Fake TV" <switch> (Schaltdosen) {channel="homematic:HG-HM-LC-Sw1-Pl:b70f309a:JEQ0066709:1#STATE"}
+Number Schaltdose3_QoS "Schaltdose 3 Signal" <qualityofservice> (Signale){channel="homematic:HG-HM-LC-Sw1-Pl:b70f309a:JEQ0066709:0#RSSI_DEVICE"}
+
+Switch Messdose1_State "Messdose 1" <switch> (Schaltdosen) {channel="homematic:HG-HM-ES-PMSw1-Pl:b70f309a:NEQ0399144:1#STATE"}
+Number Messdose1_QoS "Messdose 1 Signal" <qualityofservice> (Signale){channel="homematic:HG-HM-ES-PMSw1-Pl:b70f309a:NEQ0399144:0#RSSI_DEVICE"}
+Number Messdose1_Voltage "Messdose 1 Spannung" <energy> {channel="homematic:HG-HM-ES-PMSw1-Pl:b70f309a:NEQ0399144:2#VOLTAGE"}
+Number Messdose1_Power "Messdose 1 Leistung" <energy> {channel="homematic:HG-HM-ES-PMSw1-Pl:b70f309a:NEQ0399144:2#POWER"}
+Number Messdose1_Current "Messdose 1 Strom" <energy> {channel="homematic:HG-HM-ES-PMSw1-Pl:b70f309a:NEQ0399144:2#CURRENT"}
+Number Messdose1_EnergyCounter "Messdose 1 Energiezähler" <energy> {channel="homematic:HG-HM-ES-PMSw1-Pl:b70f309a:NEQ0399144:2#ENERGY_COUNTER"}
+
+Number Wetterstation_QoS "Wetterstation Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-WDC7000:b70f309a:MEQ0224411:0#RSSI_DEVICE"}
+Switch Wetterstation_LowBat "Wetterstation Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-WDC7000:b70f309a:MEQ0224411:0#LOWBAT"}
+Number Wetterstation_Temperature "Wetterstation Temperatur" <temperature> {channel="homematic:HG-HM-WDC7000:b70f309a:MEQ0224411:10#TEMPERATURE"}
+Number Wetterstation_Humidity "Wetterstation Feuchtigkeit" <humidity> {channel="homematic:HG-HM-WDC7000:b70f309a:MEQ0224411:10#HUMIDITY"}
+Number Wetterstation_AirPressure "Wetterstation Luftdruck" <pressure> {channel="homematic:HG-HM-WDC7000:b70f309a:MEQ0224411:10#AIR_PRESSURE"}
+
+Number Wettermast_QoS "Wettermast Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-WDS100-C6-O-2:b70f309a:NEQ0294116:0#RSSI_DEVICE"}
+Switch Wettermast_LowBat "Wettermast Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-WDS100-C6-O-2:b70f309a:NEQ0294116:0#LOWBAT"}
+Number Wettermast_Temperature "Wettermast Temperatur" <temperature> {channel="homematic:HG-HM-WDS100-C6-O-2:b70f309a:NEQ0294116:1#TEMPERATURE"}
+Number Wettermast_Humidity "Wettermast Feuchtigkeit" <humidity> {channel="homematic:HG-HM-WDS100-C6-O-2:b70f309a:NEQ0294116:1#HUMIDITY"}
+Number Wettermast_Brightness "Wettermast Helligkeit" <sun> {channel="homematic:HG-HM-WDS100-C6-O-2:b70f309a:NEQ0294116:1#BRIGHTNESS"}
+Switch Wettermast_Raining "Wettermast Regen" <rain> {channel="homematic:HG-HM-WDS100-C6-O-2:b70f309a:NEQ0294116:1#RAINING"}
+Number Wettermast_RainCounter "Wettermast Regenmenge" <rain> {channel="homematic:HG-HM-WDS100-C6-O-2:b70f309a:NEQ0294116:1#RAIN_COUNTER"} 
+Number Wettermast_Windspeed "Wettermast Windgeschwindigkeit" <wind> {channel="homematic:HG-HM-WDS100-C6-O-2:b70f309a:NEQ0294116:1#WIND_SPEED"}
+
+Number Tuergriff_QoS "Türgriff Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-RHS:b70f309a:LEQ0629583:0#RSSI_DEVICE"}
+Switch Tuergriff_LowBat "Türgriff Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-RHS:b70f309a:LEQ0629583:1#LOWBAT"}
+String Tuergriff_State "Türgriff Zustand" <contact> {channel="homematic:HG-HM-Sec-RHS:b70f309a:LEQ0629583:1#STATE"}
+
+Number KuecheOst_QoS "Küche Ost Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-LC-Bl1PBU-FM:b70f309a:LEQ1026489:0#RSSI_DEVICE"}
+Rollershutter KuecheOst_Level "Küche Ost" <blinds> (Rollos) {channel="homematic:HG-HM-LC-Bl1PBU-FM:b70f309a:LEQ1026489:1#LEVEL"}
+
+Number KuecheSued_QoS "Küche Süd Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-LC-Bl1PBU-FM:b70f309a:LEQ1026349:0#RSSI_DEVICE"}
+Rollershutter KuecheSued_Level "Küche Süd" <blinds> (Rollos) {channel="homematic:HG-HM-LC-Bl1PBU-FM:b70f309a:LEQ1026349:1#LEVEL"}
+
+Number WohnzimmerErker_QoS "Wohnzimmer Erker Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-LC-Bl1PBU-FM:b70f309a:LEQ1026346:0#RSSI_DEVICE"}
+Rollershutter WohnzimmerErker_Level "Wohnzimmer Erker" <blinds> (Rollos) {channel="homematic:HG-HM-LC-Bl1PBU-FM:b70f309a:LEQ1026346:1#LEVEL"}
+
+Number WohnzimmerRechts_QoS "Wohnzimmer Rechts Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-LC-Bl1PBU-FM:b70f309a:LEQ1026464:0#RSSI_DEVICE"}
+Rollershutter WohnzimmerRechts_Level "Wohnzimmer Rechts" <blinds> (Rollos) {channel="homematic:HG-HM-LC-Bl1PBU-FM:b70f309a:LEQ1026464:1#LEVEL"}
+
+Number WohnzimmerLinks_QoS "Wohnzimmer Links Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-LC-Bl1-FM:b70f309a:LEQ0904898:0#RSSI_DEVICE"}
+Rollershutter WohnzimmerLinks_Level "Wohnzimmer Links" <blinds> (Rollos) {channel="homematic:HG-HM-LC-Bl1-FM:b70f309a:LEQ0904898:1#LEVEL"}
+
+//Number Sonne "Sonnenstand" <sun> {channel="astro:sun:local:position#elevation"}
+
+Number FM01_QoS "FM EW Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599281:0#RSSI_DEVICE"}
+Number FM02_QoS "FM EF Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599275:0#RSSI_DEVICE"}
+Number FM03_QoS "FM ES Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599481:0#RSSI_DEVICE"}
+Number FM04_QoS "FM WK Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0600781:0#RSSI_DEVICE"}
+Number FM05_QoS "FM FN Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599469:0#RSSI_DEVICE"}
+Number FM06_QoS "FM EK Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599288:0#RSSI_DEVICE"}
+Number FM07_QoS "FM FS Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599293:0#RSSI_DEVICE"}
+Number FM08_QoS "FM HK Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599276:0#RSSI_DEVICE"}
+Number FM09_QoS "FM GK Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599378:0#RSSI_DEVICE"}
+Number FM10_QoS "FM WZ Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599282:0#RSSI_DEVICE"}
+Number FM11_QoS "FM FU Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599273:0#RSSI_DEVICE"}
+Number FM12_QoS "FM TK Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599280:0#RSSI_DEVICE"}
+Number FM13_QoS "FM AZ Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0601017:0#RSSI_DEVICE"}
+Number FM14_QoS "FM SZ Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0601035:0#RSSI_DEVICE"}
+Number FM15_QoS "FM FZ Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599383:0#RSSI_DEVICE"}
+Number FM16_QoS "FM SB Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599271:0#RSSI_DEVICE"}
+Number FM17_QoS "FM BZ Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599476:0#RSSI_DEVICE"}
+Number FM18_QoS "FM FO Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599480:0#RSSI_DEVICE"}
+
+Switch FM01_LowBat "FM EW Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599281:1#LOWBAT"}
+Switch FM02_LowBat "FM EF Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599275:1#LOWBAT"}
+Switch FM03_LowBat "FM ES Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599481:1#LOWBAT"}
+Switch FM04_LowBat "FM WK Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0600781:1#LOWBAT"}
+Switch FM05_LowBat "FM FN Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599469:1#LOWBAT"}
+Switch FM06_LowBat "FM EK Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599288:1#LOWBAT"}
+Switch FM07_LowBat "FM FS Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599293:1#LOWBAT"}
+Switch FM08_LowBat "FM HK Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599276:1#LOWBAT"}
+Switch FM09_LowBat "FM GK Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599378:1#LOWBAT"}
+Switch FM10_LowBat "FM WZ Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599282:1#LOWBAT"}
+Switch FM11_LowBat "FM FU Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599273:1#LOWBAT"}
+Switch FM12_LowBat "FM TK Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599280:1#LOWBAT"}
+Switch FM13_LowBat "FM AZ Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0601017:1#LOWBAT"}
+Switch FM14_LowBat "FM SZ Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0601035:1#LOWBAT"}
+Switch FM15_LowBat "FM FZ Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599383:1#LOWBAT"}
+Switch FM16_LowBat "FM SB Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599271:1#LOWBAT"}
+Switch FM17_LowBat "FM BZ Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599476:1#LOWBAT"}
+Switch FM18_LowBat "FM FO Batterie leer" <battery> (BatLow) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599480:1#LOWBAT"}
+
+Switch FM01_State "FM EW Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599281:1#STATE"}
+Switch FM02_State "FM EF Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599275:1#STATE"}
+Switch FM03_State "FM ES Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599481:1#STATE"}
+Switch FM04_State "FM WK Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0600781:1#STATE"}
+Switch FM05_State "FM FN Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599469:1#STATE"}
+Switch FM06_State "FM EK Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599288:1#STATE"}
+Switch FM07_State "FM FS Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599293:1#STATE"}
+Switch FM08_State "FM HK Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599276:1#STATE"}
+Switch FM09_State "FM GK Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599378:1#STATE"}
+Switch FM10_State "FM WZ Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599282:1#STATE"}
+Switch FM11_State "FM FU Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599273:1#STATE"}
+Switch FM12_State "FM TK Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599280:1#STATE"}
+Switch FM13_State "FM AZ Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0601017:1#STATE"}
+Switch FM14_State "FM SZ Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0601035:1#STATE"}
+Switch FM15_State "FM FZ Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599383:1#STATE"}
+Switch FM16_State "FM SB Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599271:1#STATE"}
+Switch FM17_State "FM BZ Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599476:1#STATE"}
+Switch FM18_State "FM FO Rauch" <smoke> {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599480:1#STATE"}
+
+Switch Rauchmelder_InstallTest "Rauchmelder Kommunikationstest" <switch> {channel="homematic:HG-HM-Sec-SD-2-Team:b70f309a:T-NEQ0599480:1#INSTALL_TEST"}
+Number Rauchmelder_AlarmCounter "Rauchmelder Alarmzähler" {channel="homematic:HG-HM-Sec-SD-2-Team:b70f309a:T-NEQ0599480:1#ALARM_COUNTER"}
+String Rauchmelder_Senderaddress "Rauchmelder Senderadresse" {channel="homematic:HG-HM-Sec-SD-2-Team:b70f309a:T-NEQ0599480:1#SENDERADDRESS"}
+Number Rauchmelder_SenderID "Rauchmelder SenderID" {channel="homematic:HG-HM-Sec-SD-2-Team:b70f309a:T-NEQ0599480:1#SENDERID"}
+Switch Rauchmelder_State "Rauchmelder Zustand" {channel="homematic:HG-HM-Sec-SD-2-Team:b70f309a:T-NEQ0599480:1#STATE"}

@@ -1,0 +1,68 @@
+rule "Temperatuen gestern drinnen und draußen"
+when
+	Time cron "45 59 23 1/1 * ? *"
+then
+	Wettermast_Temperature_Max_Yesterday.postUpdate(Wettermast_Temperature_Max_Today.state )
+	Wettermast_Temperature_Min_Yesterday.postUpdate(Wettermast_Temperature_Min_Today.state )
+	Wetterstation_Temperature_Max_Yesterday.postUpdate(Wetterstation_Temperature_Max_Today.state )
+	Wetterstation_Temperature_Min_Yesterday.postUpdate(Wetterstation_Temperature_Min_Today.state )
+end
+
+rule "Temperaturen heute draussen"
+when 
+	Item Wettermast_Temperature changed or
+	Time cron "0 1 0 * * ? *" or
+	Time cron "0 0 * * * ? *"
+then 
+	Wettermast_Temperature_Max_Today.postUpdate(Wettermast_Temperature.maximumSince(now.withTimeAtStartOfDay()).state ) 
+	Wettermast_Temperature_Min_Today.postUpdate(Wettermast_Temperature.minimumSince(now.withTimeAtStartOfDay()).state ) 
+end
+
+rule "Temperaturen heute drinnen"
+when 
+	Item Wetterstation_Temperature changed  or
+	Time cron " 0 1 0 * * ? *" or
+	Time cron "0 0 * * * ? *"
+then 
+	Wetterstation_Temperature_Max_Today.postUpdate(Wetterstation_Temperature.maximumSince(now.withTimeAtStartOfDay()).state) 
+	Wetterstation_Temperature_Min_Today.postUpdate(Wetterstation_Temperature.minimumSince(now.withTimeAtStartOfDay()).state) 
+end
+
+rule "Temperaturen Wochenextrema drinnen"
+when 
+	Item Wetterstation_Temperature changed  or
+	Time cron "0 0 * * * ? *"
+then 
+	Wetterstation_Temperature_Max_Week.postUpdate((Wetterstation_Temperature.maximumSince(now.minusWeeks(1)).state))
+	Wetterstation_Temperature_Min_Week.postUpdate((Wetterstation_Temperature.minimumSince(now.minusWeeks(1)).state))
+end
+
+rule "Temperaturen Wochenextrema draußen"
+when 
+	Item Wettermast_Temperature changed  or
+	Time cron "0 1 * * * ? *"
+then 
+	Wettermast_Temperature_Max_Week.postUpdate((Wettermast_Temperature.maximumSince(now.minusWeeks(1)).state))
+	Wettermast_Temperature_Min_Week.postUpdate((Wettermast_Temperature.minimumSince(now.minusWeeks(1)).state))
+end
+
+rule "Durchschnittstemperatur"
+when
+	Time cron "30 0/15 * 1/1 * ? *" or
+	Item Wettermast_Temperature changed or
+	Item Wetterstation_Temperature changed
+then
+	Wetterstation_Temperature_Avg_24h.postUpdate(Wetterstation_Temperature.averageSince(now.minusDays(1)))
+	Wetterstation_Temperature_Avg_7D.postUpdate(Wetterstation_Temperature.averageSince(now.minusWeeks(1)))
+	Wettermast_Temperature_Avg_24h.postUpdate(Wettermast_Temperature.averageSince(now.minusDays(1)))
+	Wettermast_Temperature_Avg_7D.postUpdate(Wettermast_Temperature.averageSince(now.minusWeeks(1)))
+end
+
+rule "Stromverbrauch"
+when
+	Item Messdose1_Power changed or
+	Time cron "15 0/15 * 1/1 * ? *"
+then
+	Messdose1_Power_Avg_24h.postUpdate(Messdose1_Power.averageSince(now.minusDays(1)))
+	Messdose1_Power_Avg_7D.postUpdate(Messdose1_Power.averageSince(now.minusWeeks(1)))
+end
