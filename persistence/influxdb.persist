@@ -1,0 +1,14 @@
+Strategies
+ {
+    everyHour : "0 0 * * * ? *"
+
+    everyMinute : "0 * * * * ?"
+}
+
+Items
+ {
+    *   : strategy = everyChange, everyHour
+    Wettermast_Temperature : strategy =  everyMinute
+    Wetterstation_Temperature : strategy = everyMinute
+    unlinked* : strategy = everyUpdate
+ }

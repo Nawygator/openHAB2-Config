@@ -1,0 +1,23 @@
+rule "Klingeln"
+when
+	Item fboxRinging changed or
+	Item fboxRinging_Out changed
+then
+	if(fboxRinging == ON || fboxRinging_Out == ON)
+	{
+		Ringing.postUpdate(ON)
+	}else{
+		Ringing.postUpdate(OFF)
+	}
+end
+
+rule "Fernseher antelefonieren"
+when
+	Item fboxIncomingCall changed
+then
+var Angerufen = fboxIncomingCall.toString
+if(Angerufen.contains("146125"))
+{
+	Schaltdose3_State.sendCommand(ON)
+}
+end

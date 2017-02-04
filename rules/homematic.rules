@@ -1,0 +1,50 @@
+/*
+rule "Tag"
+when
+	Item Sonne changed
+then
+	var hoehe = (Sonne.state as DecimalType).intValue
+	
+	if( hoehe>=0 && tag.state == OFF)
+	{
+		tag.postUpdate(ON)
+		logInfo("Fabians","Tag -> ON")
+	}
+	else if (hoehe<=-4 && tag.state == ON)
+	{
+		tag.postUpdate(OFF)
+		logInfo("Fabians","Tag -> OFF")
+	}
+end
+*/
+
+rule "Wochenendbestimmung"
+when
+	Time cron "0 0 0 * * ? *"
+then
+	var wochentagTemp  = now.getDayOfWeek
+	var OnOffType result
+	
+	if(wochentagTemp <=5)
+	{
+		result = ON
+	}else{
+		result = OFF
+	}
+	wochentag.postUpdate(result)
+	Hochgefahren.postUpdate(OFF)
+end
+
+rule "Licht an"
+when
+	Item tag changed to OFF
+then
+	Schaltdose1_State.sendCommand(ON)
+end
+
+rule "Licht aus"
+when
+	Item tag changed to ON
+then
+	Schaltdose1_State.sendCommand(OFF)
+end

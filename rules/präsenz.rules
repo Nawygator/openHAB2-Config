@@ -1,0 +1,17 @@
+rule "FakeTV"
+when
+	Item praesenz changed  or
+	Item tag changed 
+then
+	var OnOffType result
+	
+	if(tag.state.equals(OFF)&& praesenz.state.equals(OFF))
+	{
+		result = ON
+	}
+	if(praesenz.state.equals(ON) || tag.state.equals(ON))
+	{
+		result=OFF
+	}
+	Schaltdose3_State.sendCommand(result)
+end

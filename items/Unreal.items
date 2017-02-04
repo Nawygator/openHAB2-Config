@@ -1,0 +1,49 @@
+Group Schaltdosen <switch>
+Group Signale
+Group:Switch:OR(ON, OFF) BatLow <Battery>
+Group:Number:AVG Rollos <blinds>
+Group:Switch:OR(ON, OFF) Praesenz
+Group Benzin
+
+String Item
+
+Group Feuermelder
+Group Keller
+Group Erdgeschoss
+Group Obergeschoss
+Group Temperatur
+
+Group unlinked
+Number Wetterstation
+
+Group:Switch:AND(ON, OFF) praesenz (unlinked)
+Switch Irini (unlinked)
+
+Switch tag (unlinked)
+Switch wochentag (unlinked)
+
+Switch Hochgefahren (unlinked)
+Switch TuerOffen (unlinked)
+
+Number Wettermast_Temperature_Min_Today (unlinked, Temperatur)
+Number Wettermast_Temperature_Max_Today (unlinked, Temperatur)
+Number Wettermast_Temperature_Min_Yesterday (unlinked, Temperatur)
+Number Wettermast_Temperature_Max_Yesterday (unlinked, Temperatur)
+Number Wettermast_Temperature_Min_Week (unlinked, Temperatur)
+Number Wettermast_Temperature_Max_Week (unlinked, Temperatur)
+Number Wettermast_Temperature_Avg_24h (unlinked, Temperatur)
+Number Wettermast_Temperature_Avg_7D (unlinked, Temperatur)
+
+Number Wetterstation_Temperature_Min_Today (unlinked, Temperatur)
+Number Wetterstation_Temperature_Max_Today (unlinked, Temperatur)
+Number Wetterstation_Temperature_Min_Yesterday (unlinked, Temperatur)
+Number Wetterstation_Temperature_Max_Yesterday (unlinked, Temperatur)
+Number Wetterstation_Temperature_Min_Week (unlinked, Temperatur)
+Number Wetterstation_Temperature_Max_Week (unlinked, Temperatur)
+Number Wetterstation_Temperature_Avg_24h (unlinked, Temperatur)
+Number Wetterstation_Temperature_Avg_7D (unlinked, Temperatur)
+
+Number Messdose1_Power_Avg_24h (unlinked)
+Number Messdose1_Power_Avg_7D (unlinked)
+
+Group:Switch:AND(OFF, ON) Ringing
