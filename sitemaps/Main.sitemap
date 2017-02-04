@@ -82,11 +82,11 @@ sitemap Main
     			Text item=SpeedtestRunning label="Speedtest [%s]" visibility=[SpeedtestRunning != "-"]
     			Switch item=SpeedtestRerun mappings=[ON="Start"]
   			}
- /*			Frame label="Statistik" 
-  			{
-   				Text label="..." icon="analytics"
- 			}
- */
+	Frame label="Statistik" 
+  		{
+   			Text label="Graphen" icon="analytics"
+ 		}
+
 
 		}
 		
