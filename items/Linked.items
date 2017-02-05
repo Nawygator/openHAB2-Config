@@ -46,6 +46,9 @@ String Tuergriff_State "Türgriff Zustand" <contact> {channel="homematic:HG-HM-S
 Number KuecheOst_QoS "Küche Ost Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-LC-Bl1PBU-FM:b70f309a:LEQ1026489:0#RSSI_DEVICE"}
 Rollershutter KuecheOst_Level "Küche Ost" <blinds> (Rollos) {channel="homematic:HG-HM-LC-Bl1PBU-FM:b70f309a:LEQ1026489:1#LEVEL"}
 
+Number Markiese_QoS "Markiese Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-LC-Bl1-SM:b70f309a:MEQ0515411:0#RSSI"}
+Rollershutter Markiese_Level "Markiese" {channel="homematic:HG-HM-LC-Bl1-SM:b70f309a:MEQ0515411:1#LEVEL"}
+
 Number KuecheSued_QoS "Küche Süd Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-LC-Bl1PBU-FM:b70f309a:LEQ1026349:0#RSSI_DEVICE"}
 Rollershutter KuecheSued_Level "Küche Süd" <blinds> (Rollos) {channel="homematic:HG-HM-LC-Bl1PBU-FM:b70f309a:LEQ1026349:1#LEVEL"}
 
@@ -59,6 +62,16 @@ Number WohnzimmerLinks_QoS "Wohnzimmer Links Signal" <qualityofservice> (Signale
 Rollershutter WohnzimmerLinks_Level "Wohnzimmer Links" <blinds> (Rollos) {channel="homematic:HG-HM-LC-Bl1-FM:b70f309a:LEQ0904898:1#LEVEL"}
 
 //Number Sonne "Sonnenstand" <sun> {channel="astro:sun:local:position#elevation"}
+
+Dimmer Volume "Lautstärke" <soundvolume> {channel="samsungtv:tv:1017df81_000e_1000_a825_5056bf3452eb:volume"}
+Switch Mute "Lautlos" {channel="samsungtv:tv:1017df81_000e_1000_a825_5056bf3452eb:mute"}
+String SourceName "Quelle" {channel="samsungtv:tv:1017df81_000e_1000_a825_5056bf3452eb:sourceName"}
+Number SourceID "Quelle" {channel="samsungtv:tv:1017df81_000e_1000_a825_5056bf3452eb:sourceId"}
+Number ChannelID "Kanal" {channel="samsungtv:tv:1017df81_000e_1000_a825_5056bf3452eb:channel"}
+String ChannelName "Kanal" {channel="samsungtv:tv:1017df81_000e_1000_a825_5056bf3452eb:channelName"}
+String Program "Programm" {channel="samsungtv:tv:1017df81_000e_1000_a825_5056bf3452eb:programTitle"}
+String KeyCode "KeyCode" {channel="samsungtv:tv:1017df81_000e_1000_a825_5056bf3452eb:keyCode"}
+Switch Power "Power" {channel="samsungtv:tv:1017df81_000e_1000_a825_5056bf3452eb:power"}
 
 Number FM01_QoS "FM EW Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599281:0#RSSI_DEVICE"}
 Number FM02_QoS "FM EF Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-Sec-SD-2:b70f309a:NEQ0599275:0#RSSI_DEVICE"}

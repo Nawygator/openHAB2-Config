@@ -37,6 +37,7 @@ then
 	if(TuerOffen.state.equals(OFF))
 	{
 		WohnzimmerRechts_Level.sendCommand(DOWN)
+		Markiese_Level.sendCommand(DOWN)
 	}
 end
 
@@ -73,5 +74,6 @@ then
 	if(tag.state.equals(OFF))
 	{
 		WohnzimmerRechts_Level.sendCommand(DOWN)
+		Markiese_Level.sendCommand(DOWN)
 	}
 end
