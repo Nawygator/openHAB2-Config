@@ -42,7 +42,6 @@ Number Wetterstation_Temperature_Min_Week (unlinked, Temperatur)
 Number Wetterstation_Temperature_Max_Week (unlinked, Temperatur)
 Number Wetterstation_Temperature_Avg_24h (unlinked, Temperatur)
 Number Wetterstation_Temperature_Avg_7D (unlinked, Temperatur)
-Number Wetterstation_Temperature_Int_24h (unlinked)
 
 Number Messdose1_Power_Avg_24h (unlinked)
 Number Messdose1_Power_Avg_7D (unlinked)
