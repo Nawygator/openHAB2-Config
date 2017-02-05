@@ -1,0 +1,117 @@
+sitemap Main 
+{
+	Frame label="Wetterstation" 
+		{
+			Text item=Wetterstation icon=wind{
+			Text item=Wetterstation_Temperature valuecolor=[>25="orange",>22="green",<=22="blue"]
+			{
+				Text item=Wetterstation_Temperature label="Aktuell [%.1f °C]" icon=temperature
+				Text item=Wetterstation_Temperature_Min_Today label="Tagestief [%.1f °C]" icon=temperature_cold
+				Text item=Wetterstation_Temperature_Avg_24h label="Tagesdurchschnitt [%.1f °C]"	icon=temperature
+				{
+					Chart item=Wetterstation_Temperature period=D refresh=60000 service="influxdb"
+				}
+				Text item=Wetterstation_Temperature_Max_Today label="Tageshoch [%.1f °C]" icon=temperature_hot
+				Text item=Wetterstation_Temperature_Min_Yesterday label="Vortagestief [%.1f °C]" icon=temperature_cold
+				Text item=Wetterstation_Temperature_Max_Yesterday label="Vortageshoch [%.1f °C]" icon=temperature_hot
+				Text item=Wetterstation_Temperature_Min_Week label="Wochentief [%.1f °C]" icon=temperature_cold
+				Text item=Wetterstation_Temperature_Max_Week label="Wochenhoch [%.1f °C]" icon=temperature_hot
+				Text item=Wetterstation_Temperature_Avg_7D label="Wochendurchschnitt [%.1f °C]"	icon=temperature
+				{
+					Chart item=Wetterstation_Temperature period=W refresh=60000 service="influxdb"
+				}
+			}
+			Text item=Wettermast_Temperature valuecolor=[>25="orange", >5="green",<=5="blue" ]
+			{
+				Text item=Wettermast_Temperature label="Aktuell [%.1f °C]" icon=temperature
+				Text item=Wettermast_Temperature_Min_Today label="Tagestief [%.1f °C]" icon=temperature_cold
+				Text item=Wettermast_Temperature_Avg_24h label="Tagesdurchschnitt [%.1f °C]"	icon=temperature
+				{
+					Chart item=Wettermast_Temperature period=D refresh=60000 service="influxdb"
+				}
+				Text item=Wettermast_Temperature_Max_Today label="Tageshoch [%.1f °C]" icon=temperature_hot
+				Text item=Wettermast_Temperature_Min_Yesterday label="Vortagestief [%.1f °C]" icon=temperature_cold
+				Text item=Wettermast_Temperature_Max_Yesterday label="Vortageshoch [%.1f °C]"  icon=temperature_hot
+				Text item=Wettermast_Temperature_Avg_7D label="Wochendurchschnitt [%.1f °C]"	icon=temperature	
+				{
+					Chart item=Wettermast_Temperature period=W refresh=60000 service="influxdb"
+				}		
+			}
+			Text item=Wetterstation_AirPressure
+			Text item=Wetterstation_Humidity
+			Text item=Wettermast_Humidity
+			Text item=Wettermast_Brightness label="Helligkeit [%.0f]"
+			 }
+		} 
+		
+	Frame label="Rolläden"
+	{
+		Text item=Rollos
+		{
+			Default item=KuecheOst_Level
+			Default item=KuecheSued_Level
+			Default item=WohnzimmerErker_Level
+			Default item=WohnzimmerRechts_Level
+			Default item=WohnzimmerLinks_Level
+		}
+	} 
+	Frame label="Schaltdosen"
+	{
+		Text item=Schaltdosen
+		{
+			Default item=Schaltdose1_State label="Beleuchtung draußen"
+			Default item=Schaltdose2_State label="Fabians Zimmer"
+			Default item=Schaltdose3_State label="FakeTV"
+			Default item=Messdose1_State
+		}
+	}
+	
+	Frame label="Internet"
+	{
+		Text item=SpeedtestSummary 
+		{
+  			Frame label="Ergebnisse" 
+  			{
+    			Text item=SpeedtestResultDown
+   				Text item=SpeedtestResultUp
+    			Text item=SpeedtestResultPing
+  			}
+  			Frame label="Steuerung" 
+  			{
+    			Text item=SpeedtestResultDate
+    			Text item=SpeedtestRunning label="Speedtest [%s]" visibility=[SpeedtestRunning != "-"]
+    			Switch item=SpeedtestRerun mappings=[ON="Start"]
+  			}
+	Frame label="Statistik" 
+  		{
+   			Text label="Graphen" icon="analytics"
+ 		}
+
+
+		}
+		
+	}
+	Frame label="Fritzbox" visibility=[Ringing == ON]
+	{
+		Text item=fboxIncomingCall visibility=[fboxRinging == ON]
+		Text item=fboxOutgoingCall visibility=[fboxRinging_Out == ON]
+	}
+	
+	Frame label="Präsenz"
+	{
+		Text item=Fabian icon=switch
+		Text item=Josef icon=switch
+		Text item=Karina icon=switch
+		Text item=Irini icon=switch
+	} 
+	
+	Frame label="Benzin"
+	{
+		Text item=Item label="Star Heeren" icon=oil
+		{
+			Text item=StarDiesel
+			Text item=StarE10
+			Chart item=Benzin period=D refresh=60000 service="influxdb"
+		}
+	}
+}

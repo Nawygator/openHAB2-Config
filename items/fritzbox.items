@@ -1,0 +1,4 @@
+Switch	fboxRinging			"Phone ringing [%s]"			(Ringing)	{fritzboxtr064="callmonitor_ringing"}
+Switch	fboxRinging_Out		"Phone ringing [%s]"			(Ringing)	{fritzboxtr064="callmonitor_outgoing"}
+Call	fboxIncomingCall	"Incoming call: [%1$s to %2$s]"				{fritzboxtr064="callmonitor_ringing"} 
+Call	fboxOutgoingCall	"Outgoing call: [%1$s to %2$s]"				{fritzboxtr064="callmonitor_outgoing"}
