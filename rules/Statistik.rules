@@ -33,8 +33,8 @@ when
 	Item Wetterstation_Temperature changed  or
 	Time cron "0 0 * * * ? *"
 then 
-	Wetterstation_Temperature_Max_Week.postUpdate((Wetterstation_Temperature.maximumSince(now.minusWeeks(1)).state))
 	Wetterstation_Temperature_Min_Week.postUpdate((Wetterstation_Temperature.minimumSince(now.minusWeeks(1)).state))
+	Wetterstation_Temperature_Max_Week.postUpdate((Wetterstation_Temperature.maximumSince(now.minusWeeks(1)).state))
 end
 
 rule "Temperaturen Wochenextrema draußen"
@@ -42,8 +42,8 @@ when
 	Item Wettermast_Temperature changed  or
 	Time cron "0 1 * * * ? *"
 then 
-	Wettermast_Temperature_Max_Week.postUpdate((Wettermast_Temperature.maximumSince(now.minusWeeks(1)).state))
 	Wettermast_Temperature_Min_Week.postUpdate((Wettermast_Temperature.minimumSince(now.minusWeeks(1)).state))
+	Wettermast_Temperature_Max_Week.postUpdate((Wettermast_Temperature.maximumSince(now.minusWeeks(1)).state))
 end
 
 rule "Durchschnittstemperatur"

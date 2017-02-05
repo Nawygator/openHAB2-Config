@@ -61,7 +61,8 @@ Rollershutter WohnzimmerRechts_Level "Wohnzimmer Rechts" <blinds> (Rollos) {chan
 Number WohnzimmerLinks_QoS "Wohnzimmer Links Signal" <qualityofservice> (Signale) {channel="homematic:HG-HM-LC-Bl1-FM:b70f309a:LEQ0904898:0#RSSI_DEVICE"}
 Rollershutter WohnzimmerLinks_Level "Wohnzimmer Links" <blinds> (Rollos) {channel="homematic:HG-HM-LC-Bl1-FM:b70f309a:LEQ0904898:1#LEVEL"}
 
-//Number Sonne "Sonnenstand" <sun> {channel="astro:sun:local:position#elevation"}
+Number Elevation "Sonnenstand" <sun> {channel="astro:sun:local:position#elevation"}
+Number Azimuth "Sonnenstand" <sun> {channel="astro:sun:local:position#azimuth"}
 
 Dimmer Volume "Lautstärke" <soundvolume> {channel="samsungtv:tv:1017df81_000e_1000_a825_5056bf3452eb:volume"}
 Switch Mute "Lautlos" {channel="samsungtv:tv:1017df81_000e_1000_a825_5056bf3452eb:mute"}
